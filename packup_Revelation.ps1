@@ -36,7 +36,4 @@ if (Test-Path "..\$ZipName $CommitDate.zip") {
 }
 & "C:\Program Files\7-Zip\7z.exe" a -tzip "..\$ZipName $CommitDate.zip" ".\shaders"
 
-Set-Location ..
-python "D:\GitHub\PythonTest\ziptest\ziptest.py"
-
 pause
