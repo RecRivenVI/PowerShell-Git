@@ -34,6 +34,6 @@ $CommitDate = git log -1 --author="$OriginOwner" --pretty=format:"%ad" --date=fo
 if (Test-Path "..\$ZipName $CommitDate.zip") {
     Remove-Item "..\$ZipName $CommitDate.zip"
 }
-& "C:\Program Files\7-Zip-Zstandard\7z.exe" a -tzip "..\$ZipName $CommitDate.zip" ".\shaders"
+& 7z a -tzip "..\$ZipName $CommitDate.zip" ".\shaders"
 
 pause
