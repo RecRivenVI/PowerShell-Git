@@ -28,7 +28,7 @@ git fetch origin
 git checkout $OriginDefaultBranch
 git reset --hard origin/$OriginDefaultBranch
 
-python "D:\GitHub\git-tools\git-restore-mtime"
+pwsh "D:\GitHub\PowerShell-Tools\Git-Retime.ps1"
 
 $CommitDate = git log -1 --author="$OriginOwner" --pretty=format:"%ad" --date=format:'%Y-%m-%d'
 if (Test-Path "..\$ZipName $CommitDate.zip") {

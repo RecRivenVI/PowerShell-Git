@@ -1,1 +1,0 @@
-python "D:\GitHub\PythonTest\ziptest\ziptest.py"

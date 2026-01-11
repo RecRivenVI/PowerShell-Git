@@ -26,6 +26,6 @@ git fetch origin
 git checkout $OriginDefaultBranch
 git reset --hard origin/$OriginDefaultBranch
 
-python "D:\GitHub\git-tools\git-restore-mtime"
+pwsh "D:\GitHub\PowerShell-Tools\Git-Retime.ps1"
 
 pause

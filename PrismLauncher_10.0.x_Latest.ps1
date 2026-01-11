@@ -1,4 +1,4 @@
-﻿$OriginUrl = "https://github.com/RecRivenVI/PrismLauncher.git"
+$OriginUrl = "https://github.com/RecRivenVI/PrismLauncher.git"
 $UpstreamUrl = "https://github.com/PrismLauncher/PrismLauncher.git"
 
 $OriginParts = $OriginUrl -split "/"
@@ -30,25 +30,11 @@ git fetch upstream
 git checkout $OriginBranch
 git reset --hard upstream/$UpstreamBranch
 
-function Invoke-CherryPickPr($PrNumber) {
-    git fetch upstream pull/$PrNumber/head:pr-$PrNumber
-    foreach ($c in $(git rev-list --reverse pr-$PrNumber ^$OriginBranch)) {
-        $ad = git show -s --format='%aD' $c
-        $env:GIT_COMMITTER_DATE = $ad
-        git cherry-pick $c
-        if ($LASTEXITCODE -ne 0) {
-            break
-        }
-    }
-}
-
-Invoke-CherryPickPr 4571
-
 git push origin $OriginBranch --force
 
-git tag 11.0 --force
-git push origin 11.0 --force
+git tag 10.0 --force
+git push origin 10.0 --force
 
-python "D:\GitHub\git-tools\git-restore-mtime"
+pwsh "D:\GitHub\PowerShell-Tools\Git-Retime.ps1"
 
 pause
