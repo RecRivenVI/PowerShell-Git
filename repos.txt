@@ -1,0 +1,3 @@
+https://github.com/RecRivenVI/PowerShell-MinecraftServerLauncher.git
+https://github.com/0xTiger/anvil-parser2.git
+https://github.com/Coloryr/ColorMC.git

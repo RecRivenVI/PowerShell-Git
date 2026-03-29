@@ -1,6 +1,8 @@
-﻿$OriginUrl = "https://github.com/RecRivenVI/PowerShell-MinecraftServerLauncher.git"
+$OriginUrl = "https://github.com/GeForceLegend/Sundial-Lite.git"
+$ZipName = "Sundial Lite Dev Packup"
 
 $OriginParts = $OriginUrl -split "/"
+$OriginOwner = $OriginParts[-2]
 $OriginRepository = ($OriginParts[-1] -replace '\.git$', '')
 
 $Path = ".\$OriginRepository"
@@ -26,6 +28,12 @@ git fetch origin
 git checkout $OriginDefaultBranch
 git reset --hard origin/$OriginDefaultBranch
 
-pwsh "D:\GitHub\PowerShell-Tools\Git-Retime.ps1"
+
+
+$CommitDate = git log -1 --author="$OriginOwner" --pretty=format:"%ad" --date=format:'%Y-%m-%d'
+if (Test-Path "..\$ZipName $CommitDate.zip") {
+    Remove-Item "..\$ZipName $CommitDate.zip"
+}
+& 7z a -tzip "..\$ZipName $CommitDate.zip" ".\shaders"
 
 pause

@@ -24,7 +24,7 @@ else {
     Set-Location $Path
 }
 
-git remote remove upstream 2>&1 | Out-Null
+git remote remove upstream
 git remote add upstream $UpstreamUrl
 git fetch upstream
 git checkout $OriginBranch
@@ -42,13 +42,11 @@ function Invoke-CherryPickPr($PrNumber) {
     }
 }
 
-Invoke-CherryPickPr 4571
+Invoke-CherryPickPr 4470
 
 git push origin $OriginBranch --force
 
 git tag 11.0 --force
 git push origin 11.0 --force
-
-pwsh "D:\GitHub\PowerShell-Tools\Git-Retime.ps1"
 
 pause

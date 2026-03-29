@@ -1,4 +1,4 @@
-$OriginUrl = "https://github.com/MestreLion/git-tools.git"
+﻿$OriginUrl = "https://github.com/RecRivenVI/PowerShell-MinecraftServerLauncher.git"
 
 $OriginParts = $OriginUrl -split "/"
 $OriginRepository = ($OriginParts[-1] -replace '\.git$', '')
@@ -26,6 +26,6 @@ git fetch origin
 git checkout $OriginDefaultBranch
 git reset --hard origin/$OriginDefaultBranch
 
-pwsh "D:\GitHub\PowerShell-Tools\Git-Retime.ps1"
+
 
 pause

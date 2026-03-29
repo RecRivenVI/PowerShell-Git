@@ -49,6 +49,6 @@ git push origin $OriginBranch --force
 git tag 10.0 --force
 git push origin 10.0 --force
 
-pwsh "D:\GitHub\PowerShell-Tools\Git-Retime.ps1"
+
 
 pause
