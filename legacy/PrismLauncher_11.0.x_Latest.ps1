@@ -9,8 +9,6 @@ $Path = ".\$OriginRepository"
 
 $UpstreamBranch = "develop"
 
-$env:HTTP_PROXY = "http://127.0.0.1:7897"
-$env:HTTPS_PROXY = "http://127.0.0.1:7897"
 
 if (Test-Path $Path) {
     Set-Location $Path
@@ -32,7 +30,7 @@ git reset --hard upstream/$UpstreamBranch
 
 git push origin $OriginBranch --force
 
-git tag 11.0 --force
-git push origin 11.0 --force
+git tag 11.0.3 --force
+git push origin 11.0.3 --force
 
 pause

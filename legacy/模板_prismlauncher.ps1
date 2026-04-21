@@ -9,8 +9,6 @@ $Path = ".\$OriginRepository"
 
 $UpstreamBranch = "develop"
 
-$env:HTTP_PROXY = "http://127.0.0.1:7897"
-$env:HTTPS_PROXY = "http://127.0.0.1:7897"
 
 if (Test-Path $Path) {
     Set-Location $Path
