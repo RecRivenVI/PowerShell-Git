@@ -8,7 +8,7 @@ $OriginBranch = "develop"
 $Path = ".\$OriginRepository"
 
 $UpstreamBranch = "develop"
-
+$Tag = (gh api repos/PrismLauncher/PrismLauncher/milestones --jq '.[].title' | Sort-Object { [version]$_ } | Select-Object -First 1)
 
 if (Test-Path $Path) {
     Set-Location $Path
@@ -27,7 +27,7 @@ git remote add upstream $UpstreamUrl
 git fetch upstream
 git checkout $OriginBranch
 git reset --hard upstream/$UpstreamBranch
-
+<# 
 function Invoke-CherryPickPr($PrNumber) {
     git fetch upstream pull/$PrNumber/head:pr-$PrNumber
     foreach ($c in $(git rev-list --reverse pr-$PrNumber ^$OriginBranch)) {
@@ -41,10 +41,10 @@ function Invoke-CherryPickPr($PrNumber) {
 }
 
 Invoke-CherryPickPr 4470
-
+ #>
 git push origin $OriginBranch --force
 
-git tag 11.0.3 --force
-git push origin 11.0.3 --force
+git tag $Tag --force
+git push origin $Tag --force
 
 pause
